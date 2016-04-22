@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MethodModifications Version="1" Model="OrbitrapFusion" Family="Calcium" Type="SL">
+  <Modification Order="1">
+    <Experiment ExperimentIndex="0">
+      <FullMSScan>
+        <FirstMass>490</FirstMass>
+        <LastMass>910</LastMass>
+      </FullMSScan>
+    </Experiment>
+    <Experiment ExperimentIndex="1">
+      <TMSnScan>
+        <IsolationWindow>20</IsolationWindow>		
+      </TMSnScan>
+    </Experiment>
+  </Modification>
+
+  <Modification Order="2">
+    <CopyAndAppendExperiment SourceExperimentIndex="0"/>	
+  </Modification>
+
+  <Modification Order="3">
+    <CopyAndAppendExperiment SourceExperimentIndex="1"/>
+  </Modification>
+
+  <Modification Order="4">
+    <Experiment ExperimentIndex="1">
+      <TMSnScan>
+        <MassList>
+          <MassListRecord>
+            <MOverZ>510.4819</MOverZ>
+            <Z>2</Z>			
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>530.491</MOverZ>
+            <Z>2</Z>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>550.5001</MOverZ>
+            <Z>2</Z>			
+          </MassListRecord>
+        </MassList>
+      </TMSnScan>
+    </Experiment>
+    <Experiment ExperimentIndex="3">
+      <TMSnScan>
+        <MassList>
+          <MassListRecord>
+            <MOverZ>610.4819</MOverZ>
+            <Z>3</Z>
+			<MSXID>1</MSXID>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>630.491</MOverZ>
+            <Z>3</Z>
+			<MSXID>5</MSXID>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>650.5001</MOverZ>
+            <Z>3</Z>
+			<MSXID>2</MSXID>
+          </MassListRecord>
+        </MassList>			
+		<EnableMSXIds>true</EnableMSXIds>
+		<EnableMultiplexIons>true</EnableMultiplexIons>
+		<MaxNoOfMultiplexIons>10</MaxNoOfMultiplexIons>
+		<OrbitrapResolution>R500K</OrbitrapResolution>
+		<AgcTarget>100</AgcTarget>
+		<MinAgcTarget>true</MinAgcTarget>
+		<MaxITTimeInMS>120</MaxITTimeInMS>		
+      </TMSnScan>
+    </Experiment>
+  </Modification>   
+</MethodModifications>

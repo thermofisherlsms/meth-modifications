@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Method xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1" Family="Hyperion">
+  <RunTime>60</RunTime>
+  <MixedScanExp>
+    <Experiments>
+      <Experiment>
+        <StartTime>0</StartTime>
+        <EndTime>60</EndTime>
+        <SRMExp>
+          <ExpParams>
+            <UseCalibratedS-Lens>true</UseCalibratedS-Lens>
+            <CollisionGasPressure>1.5</CollisionGasPressure>
+            <Q1PeakWidth InUse="true">0.7</Q1PeakWidth>
+            <Q3PeakWidth InUse="true">0.7</Q3PeakWidth>
+            <SourceCID InUse="true">0</SourceCID>
+            <CycleTime InUse="false">1</CycleTime>
+            <ChromFilter>0</ChromFilter>
+            <EnableISV>false</EnableISV>
+            <DwellTime InUse="true">100</DwellTime>
+            <S-Lens InUse="true">0</S-Lens>
+          </ExpParams>
+          <ISVParams />
+          <MassList>
+            <ListItem>
+              <Name>name</Name>
+              <PrecursorMass>200</PrecursorMass>
+              <ProductMass>100</ProductMass>
+              <StartTime>0.5</StartTime>
+              <StopTime>1.5</StopTime>
+              <Polarity>positive</Polarity>
+              <CollisionEnergy>0</CollisionEnergy>
+              <S-Lens>0</S-Lens>
+              <DwellTime>100</DwellTime>
+              <Q1PeakWidth>0.7</Q1PeakWidth>
+              <Q3PeakWidth>0.7</Q3PeakWidth>
+              <SourceCID>0</SourceCID>
+            </ListItem>
+            <ListItem>
+              <Name>name1</Name>
+              <PrecursorMass>200</PrecursorMass>
+              <ProductMass>100</ProductMass>
+              <StartTime>0.5</StartTime>
+              <StopTime>1.5</StopTime>
+              <Polarity>positive</Polarity>
+              <CollisionEnergy>0</CollisionEnergy>
+              <S-Lens>0</S-Lens>
+              <DwellTime>100</DwellTime>
+              <Q1PeakWidth>0.7</Q1PeakWidth>
+              <Q3PeakWidth>0.7</Q3PeakWidth>
+              <SourceCID>0</SourceCID>
+            </ListItem>
+            <ListItem>
+              <Name>name2</Name>
+              <PrecursorMass>200</PrecursorMass>
+              <ProductMass>100</ProductMass>
+              <StartTime>0.5</StartTime>
+              <StopTime>1.5</StopTime>
+              <Polarity>positive</Polarity>
+              <CollisionEnergy>0</CollisionEnergy>
+              <S-Lens>0</S-Lens>
+              <DwellTime>100</DwellTime>
+              <Q1PeakWidth>0.7</Q1PeakWidth>
+              <Q3PeakWidth>0.7</Q3PeakWidth>
+              <SourceCID>0</SourceCID>
+            </ListItem>
+            <ListItem>
+              <Name>name3</Name>
+              <PrecursorMass>200</PrecursorMass>
+              <ProductMass>100</ProductMass>
+              <StartTime>0.5</StartTime>
+              <StopTime>1.5</StopTime>
+              <Polarity>positive</Polarity>
+              <CollisionEnergy>0</CollisionEnergy>
+              <S-Lens>0</S-Lens>
+              <DwellTime>100</DwellTime>
+              <Q1PeakWidth>0.7</Q1PeakWidth>
+              <Q3PeakWidth>0.7</Q3PeakWidth>
+              <SourceCID>0</SourceCID>
+            </ListItem>
+            <ListItem>
+              <Name>name4</Name>
+              <PrecursorMass>200</PrecursorMass>
+              <ProductMass>100</ProductMass>
+              <StartTime>0.5</StartTime>
+              <StopTime>1.5</StopTime>
+              <Polarity>positive</Polarity>
+              <CollisionEnergy>0</CollisionEnergy>
+              <S-Lens>0</S-Lens>
+              <DwellTime>100</DwellTime>
+              <Q1PeakWidth>0.7</Q1PeakWidth>
+              <Q3PeakWidth>0.7</Q3PeakWidth>
+              <SourceCID>0</SourceCID>
+            </ListItem>
+            <ListItem>
+              <Name>name5</Name>
+              <PrecursorMass>200</PrecursorMass>
+              <ProductMass>100</ProductMass>
+              <StartTime>0.5</StartTime>
+              <StopTime>1.5</StopTime>
+              <Polarity>positive</Polarity>
+              <CollisionEnergy>0</CollisionEnergy>
+              <S-Lens>0</S-Lens>
+              <DwellTime>100</DwellTime>
+              <Q1PeakWidth>0.7</Q1PeakWidth>
+              <Q3PeakWidth>0.7</Q3PeakWidth>
+              <SourceCID>0</SourceCID>
+            </ListItem>
+          </MassList>
+        </SRMExp>
+      </Experiment>
+    </Experiments>
+  </MixedScanExp>
+  <GlobalParams>
+    <SourceSettings>
+      <SourceTypeInUse>HESI</SourceTypeInUse>
+      <SourceTypes>
+        <SourceType>
+          <Type>NSI</Type>
+          <PositiveVoltage>1200</PositiveVoltage>
+          <NegativeVoltage>600</NegativeVoltage>
+          <SweepGas>2</SweepGas>
+          <IonTransferTubeTemp>325</IonTransferTubeTemp>
+        </SourceType>
+        <SourceType>
+          <Type>HESI</Type>
+          <PositiveVoltage>3500</PositiveVoltage>
+          <NegativeVoltage>2500</NegativeVoltage>
+          <SheathGas>2</SheathGas>
+          <AuxGas>2</AuxGas>
+          <SweepGas>2</SweepGas>
+          <IonTransferTubeTemp>325</IonTransferTubeTemp>
+          <VaporizerTemp>0</VaporizerTemp>
+        </SourceType>
+        <SourceType>
+          <Type>APCI</Type>
+          <PositiveCurrent>4</PositiveCurrent>
+          <NegativeCurrent>10</NegativeCurrent>
+          <SheathGas>2</SheathGas>
+          <AuxGas>2</AuxGas>
+          <SweepGas>2</SweepGas>
+          <IonTransferTubeTemp>325</IonTransferTubeTemp>
+          <VaporizerTemp>0</VaporizerTemp>
+        </SourceType>
+      </SourceTypes>
+    </SourceSettings>
+    <SprayVoltage>
+      <PositiveTimePoints InUse="false" />
+      <NegativeTimePoints InUse="false" />
+    </SprayVoltage>
+    <DivertValveA InUse="false" />
+    <DivertValveB InUse="false" />
+    <SyringePump InUse="false">
+      <FlowRate>3</FlowRate>
+      <SyringeVolume>500</SyringeVolume>
+      <SyringeDiameter>3.257</SyringeDiameter>
+    </SyringePump>
+    <ContactClosure InUse="false" />
+  </GlobalParams>
+</Method>

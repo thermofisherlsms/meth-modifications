@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="Common.xsd"/>
+
+  <xs:element name="Name" type="xs:string" />
+  
+  <xs:element name="PrecursorMass" type="xs:double" />
+  
+  <xs:element name="ProductMass" type="xs:double" />
+
+  <xs:element name="Mass" type="xs:double" />
+
+  <xs:element name="CollisionEnergy" type="xs:double" />
+  
+  <xs:element name="StartTime" type="xs:double" />
+  
+  <xs:element name="StopTime" type="xs:double" />
+  
+  <xs:element name="Polarity" type="Polarity" />
+  
+  <xs:element name="S-Lens" type="xs:double" />
+  
+  <xs:element name="DwellTime" type="xs:double" />
+
+  <xs:element name="PeakWidth" type="xs:double" />
+
+  <xs:element name="Q1PeakWidth" type="xs:double" />
+  
+  <xs:element name="Q3PeakWidth" type="xs:double" />
+  
+  <xs:element name="SourceCID" type="xs:double" />
+
+  <xs:element name="NeutralMass" type="xs:double" />
+
+  <xs:element name="FirstMass" type="xs:double" />
+  
+  <xs:element name="LastMass" type="xs:double" />
+  
+  <xs:element name="ScanRate" type="ScanRateValue" />
+
+  <xs:element name="ScanWidth" type="xs:double" />
+
+  <xs:element name="CollisionEnergyRampStart" type="xs:double" />
+
+  <xs:element name="CollisionEnergyRampEnd" type="xs:double" />
+
+  <xs:element name="ChargeState" type="xs:int" />
+
+  <xs:element name="Threshold" type="xs:double" />
+
+  <xs:element name="UnknownProducts" type="xs:int" />
+
+  <xs:element name="UseAutoDDCE" type="xs:boolean" />
+
+  <xs:element name="DDStartCE" type="xs:double" />
+
+  <xs:element name="DDEndCE" type="xs:double" />
+ 	
+
+</xs:schema>

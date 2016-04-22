@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="HyperionMethodParams.xsd" />
+  <xs:include schemaLocation="HyperionMassListParams.xsd" />
+
+  <xs:complexType name="FullScanExpParams">
+    <xs:all>
+      <xs:element ref="CollisionGasPressure" minOccurs="1" />
+      <xs:element ref="ChromFilter" minOccurs="1" />
+      <xs:element ref="UseQuad" minOccurs="1" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="FullScanMassList">
+    <xs:sequence>
+      <xs:element name="ListItem" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element ref="FirstMass" minOccurs="1" />
+            <xs:element ref="LastMass" minOccurs="1" />
+            <xs:element ref="ScanRate" minOccurs="1" />
+            <xs:element ref="Polarity" minOccurs="1" />
+            <xs:element ref="PeakWidth" minOccurs="1" />
+            <xs:element ref="SourceCID" minOccurs="1" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="FullScanExp">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="ExpParams" type="FullScanExpParams" minOccurs="0" />
+
+        <xs:element name="MassList" type="FullScanMassList" minOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

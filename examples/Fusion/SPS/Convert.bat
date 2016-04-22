@@ -1,0 +1,1 @@
+..\..\..\XmlMethodChanger\bin\Debug\XmlMethodChanger.exe -i Template.meth -m SPS.xml -o SPSExperiment.meth

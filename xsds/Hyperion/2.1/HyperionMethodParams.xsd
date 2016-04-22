@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <xs:include schemaLocation="Common.xsd" />
+  
+  <xs:element name="UseCalibratedS-Lens" type="xs:boolean" />
+
+  <xs:element name="CollisionGasPressure" type="xs:double" />
+  
+  <xs:element name="ChromFilter" type="xs:double" />
+
+  <xs:element name="ChromPeakWidth" type="xs:double" />
+
+  <xs:element name="EnableISV" type="xs:boolean" />
+
+  <xs:element name="UseCollisionEnergyRamp" type="xs:boolean" /> 
+
+  <xs:element name="DDFirstMass" type="xs:double" />
+
+  <xs:element name="DDOverrideLastMass" type="xs:boolean" />
+
+  <xs:element name="DDLastMass" type="xs:double" />
+
+  <xs:complexType name="CycleTime">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="DwellTime">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="S-Lens">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Q1PeakWidth">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Q3PeakWidth">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="SourceCID">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ScanWidth">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="PeakWidth">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ScanRate">
+    <xs:simpleContent>
+      <xs:extension base="ScanRateValue">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CollisionEnergyRampStart">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CollisionEnergyRampEnd">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CollisionEnergy">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ChargeState">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute ref="InUse" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="UseDwellTime" type="xs:boolean" />
+  
+</xs:schema>

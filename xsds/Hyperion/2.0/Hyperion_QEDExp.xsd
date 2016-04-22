@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <xs:include schemaLocation="HyperionMethodParams.xsd" />
+  <xs:include schemaLocation="HyperionMassListParams.xsd" />
+
+  <xs:complexType name="QEDExpParams">
+    <xs:all>
+      <xs:element ref="UseCalibratedS-Lens" minOccurs="1" />
+      <xs:element ref="CollisionGasPressure" minOccurs="1" />
+      <xs:element name="Q1PeakWidth" type="Q1PeakWidth" minOccurs="1" />
+      <xs:element name="Q3PeakWidth" type="Q3PeakWidth" minOccurs="1" />
+      <xs:element name="SourceCID" type="SourceCID" minOccurs="1" />
+      <xs:element ref="ChromPeakWidth" minOccurs="1" />
+      <xs:element name="ChargeState" type="ChargeState" minOccurs="1" />      
+      <xs:element ref="DDFirstMass" minOccurs="1" />
+      <xs:element ref="DDOverrideLastMass" minOccurs="1" />
+      <!-- if UseCalibratedS-Lens is false S-Lens is required -->
+      <xs:element name="S-Lens" type="S-Lens" minOccurs="0" />      
+      <!-- if DDOverrideLastMass is true DDLastMass is required -->
+      <xs:element ref="DDLastMass" minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="QEDMassList">
+    <xs:sequence>
+      <xs:element name="ListItem" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element ref="Name" minOccurs="1" />
+            <xs:element ref="PrecursorMass" minOccurs="1" />
+            <xs:element ref="ProductMass" minOccurs="1" />
+            <xs:element ref="StartTime" minOccurs="1" />
+            <xs:element ref="StopTime" minOccurs="1" />
+            <xs:element ref="Polarity" minOccurs="1" />
+            <xs:element ref="CollisionEnergy" minOccurs="1" />
+            <xs:element ref="Threshold" minOccurs="1" />
+            <!-- Folowing are required depending on ExpParams -->
+            <xs:element ref="S-Lens" minOccurs="0" />
+            <xs:element ref="Q1PeakWidth" minOccurs="0" />
+            <xs:element ref="Q3PeakWidth" minOccurs="0" />
+            <xs:element ref="SourceCID" minOccurs="0" />
+            <xs:element ref="ChargeState" minOccurs="0" />
+			<xs:element ref="DDStartCE" minOccurs="1" />
+			<xs:element ref="DDEndCE" minOccurs="1" />
+			<xs:element ref="UseAutoDDCE" minOccurs="1" />  
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="QEDExp">
+    <xs:complexType>
+      <xs:all>
+        <!-- Required in case of complete method -->
+        <xs:element name="ExpParams" type="QEDExpParams" minOccurs="0" />
+        <xs:element name="MassList" type="QEDMassList" minOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

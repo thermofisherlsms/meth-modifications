@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MethodModifications Version="1" Model="OrbitrapFusion" Family="Calcium" Type="SL">
+  <Modification Order="1">
+    <Experiment ExperimentIndex="0">
+      <FullMSScan>
+        <FirstMass>490</FirstMass>
+        <LastMass>910</LastMass>
+      </FullMSScan>
+    </Experiment>
+  </Modification>
+
+  <Modification Order="2">
+    <CopyAndAppendExperiment SourceExperimentIndex="0"/>
+  </Modification>
+
+  <Modification Order="3">
+    <CopyAndAppendExperiment SourceExperimentIndex="1"/>
+  </Modification>
+
+  <Modification Order="4">
+    <CopyAndAppendExperiment SourceExperimentIndex="0"/>
+  </Modification>
+
+  <Modification Order="5">
+    <CopyAndAppendExperiment SourceExperimentIndex="1"/>
+  </Modification>
+  
+  <Modification Order="6">
+    <Experiment ExperimentIndex="1">
+      <TMSnScan>
+        <MassList StartEndTime="true" CollisionEnergy="true" IsolationWindow="true">
+          <MassListRecord>
+            <MOverZ>510.4819</MOverZ>
+            <Z>2</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name1</CompoundName>			
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>530.491</MOverZ>
+            <Z>2</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name2</CompoundName>			
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>550.5001</MOverZ>
+            <Z>2</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name3</CompoundName>			
+          </MassListRecord>
+        </MassList>
+      </TMSnScan>
+    </Experiment>
+
+    <Experiment ExperimentIndex="3">
+      <TMSnScan>
+        <MassList StartEndTime="true" CollisionEnergy="true">
+          <MassListRecord>
+            <MOverZ>610.4819</MOverZ>
+            <Z>3</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name1</CompoundName>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>630.491</MOverZ>
+            <Z>3</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name2</CompoundName>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>650.5001</MOverZ>
+            <Z>3</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name3</CompoundName>
+          </MassListRecord>
+        </MassList>
+      </TMSnScan>
+    </Experiment>
+
+    <Experiment ExperimentIndex="5">
+      <TMSnScan>
+        <MassList StartEndTime="true" CollisionEnergy="true">
+          <MassListRecord>
+            <MOverZ>710.4819</MOverZ>
+            <Z>4</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name1</CompoundName>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>730.491</MOverZ>
+            <Z>4</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name2</CompoundName>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>750.5001</MOverZ>
+            <Z>4</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+            <CollisionEnergy>27</CollisionEnergy>
+            <CompoundName>Name3</CompoundName>
+          </MassListRecord>
+        </MassList>
+      </TMSnScan>
+    </Experiment>
+    
+  </Modification>
+</MethodModifications>

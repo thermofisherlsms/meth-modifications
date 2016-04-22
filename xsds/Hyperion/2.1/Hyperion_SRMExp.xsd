@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <xs:include schemaLocation="HyperionMethodParams.xsd" />
+  <xs:include schemaLocation="HyperionMassListParams.xsd" />
+
+  <xs:complexType name="SRMExpParams">
+    <xs:all>
+      <xs:element ref="UseCalibratedS-Lens" minOccurs="1" />
+      <xs:element ref="CollisionGasPressure" minOccurs="1" />
+      <xs:element name="Q1PeakWidth" type="Q1PeakWidth" minOccurs="1" />
+      <xs:element name="Q3PeakWidth" type="Q3PeakWidth" minOccurs="1" />
+      <xs:element name="SourceCID" type="SourceCID" minOccurs="1" />
+      <xs:element name="CycleTime" type="CycleTime" minOccurs="1" />
+      <!-- Folowing are required depending on other ExpParams -->
+      <!-- if cycletime inuse is true ChromFilter is required -->
+      <xs:element ref="ChromFilter" minOccurs="0" />
+      <!-- default inuse for EnableISV is false -->
+      <xs:element ref="EnableISV" minOccurs="0" />
+      <!-- if cycletime inuse is false DwellTime is required -->
+      <xs:element name="DwellTime" type="DwellTime" minOccurs="0" />
+      <!-- if UseCalibratedS-Lens is false S-Lens is required -->
+      <xs:element name="S-Lens" type="S-Lens" minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:element name="ISVParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ISVItem" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="PercentOfDwellTime" type="xs:double" />
+              <xs:element name="ExpectedPrecursorIntensity" type="xs:double" />
+              <xs:element name="PrecursorMassTolerance" type="xs:double" />
+              <xs:element name="PrecursorResolutionTolerance" type="xs:double" />
+              <xs:element name="PrecursorIntensityTolerance" type="xs:double" />
+              <xs:element name="ExpectedProductIntensity" type="xs:double" />
+              <xs:element name="ProductMassTolerance" type="xs:double" />
+              <xs:element name="ProductResolutionTolerance" type="xs:double" />
+              <xs:element name="ProductIntensityTolerance" type="xs:double" />
+            </xs:all>
+            <xs:attribute name="ID" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="SRMMassList">
+    <xs:sequence>
+      <xs:element name="ListItem" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element ref="Name" minOccurs="1" />
+            <xs:element ref="PrecursorMass" minOccurs="1" />
+            <xs:element ref="ProductMass" minOccurs="1" />
+            <xs:element ref="StartTime" minOccurs="1" />
+            <xs:element ref="StopTime" minOccurs="1" />
+            <xs:element ref="Polarity" minOccurs="1" />
+            <xs:element ref="CollisionEnergy" minOccurs="1" />
+            <!-- Folowing are required depending on ExpParams -->
+            <xs:element ref="S-Lens" minOccurs="0" />
+            <xs:element ref="DwellTime" minOccurs="0" />
+            <xs:element ref="Q1PeakWidth" minOccurs="0" />
+            <xs:element ref="Q3PeakWidth" minOccurs="0" />
+            <xs:element ref="SourceCID" minOccurs="0" />
+            <xs:element name="ISV_ID" type="xs:string" minOccurs="0"/>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="SRMExp">
+    <xs:complexType>
+      <xs:all>
+        <!-- Required in case of complete method -->
+        <xs:element name="ExpParams" type="SRMExpParams" minOccurs="0" />
+
+        <xs:element ref="ISVParams" minOccurs="0" />
+
+        <xs:element name="MassList" type="SRMMassList" minOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+    <!--<xs:unique name="uniqueISVItemID">
+      <xs:selector xpath="ISVParams/ISVItem"/>
+      <xs:field xpath="@ID"/>
+    </xs:unique>-->
+    <xs:key name="keyISVItemID">
+      <xs:selector xpath="ISVParams/ISVItem"/>
+      <xs:field xpath="@ID"/>
+    </xs:key>
+    <xs:keyref name="keyrefISVItemID" refer="keyISVItemID">
+      <xs:selector xpath="MassList/ListItem"/>
+      <xs:field xpath="ISV_ID"/>
+    </xs:keyref>
+  </xs:element>
+
+</xs:schema>

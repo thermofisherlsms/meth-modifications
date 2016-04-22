@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <xs:include schemaLocation="Common.xsd"/>
+
+  <xs:element name="SwitchTimes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SwitchTime" type="xs:double" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="DivertValvePos">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1-2"/>
+      <xs:enumeration value="1-6"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SyringePumpPos">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="On"/>
+      <xs:enumeration value="Off"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ContactClosurePos">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Open"/>
+      <xs:enumeration value="Close"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="SourceTypeName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HESI"/>
+      <xs:enumeration value="APCI"/>
+      <xs:enumeration value="NSI"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- If not present then InUse=False -->
+  <xs:complexType name="DivertValve">
+    <xs:all>
+      <xs:element ref="SwitchTimes" minOccurs="0" />
+    </xs:all>
+    <xs:attribute ref="InUse" use="required" />
+    <xs:attribute name="InitialPos" type="DivertValvePos" />
+  </xs:complexType>
+
+  <!-- If not present then InUse=False -->
+  <xs:element name="SyringePump">
+    <xs:complexType>
+      <!-- If InUse=true following needs to be there. Check in C#. -->
+      <xs:all minOccurs="0">
+        <xs:element name="FlowRate" type="xs:double" />
+        <xs:element name="SyringeVolume" type="xs:double" />
+        <xs:element name="SyringeDiameter" type="xs:double" />
+        <xs:element ref="SwitchTimes" minOccurs="0" />
+      </xs:all>
+      <xs:attribute ref="InUse" use="required" />
+      <xs:attribute name="InitialPos" type="SyringePumpPos" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- If not present then InUse=False -->
+  <xs:element name="ContactClosure">
+    <xs:complexType>
+      <xs:all minOccurs="0">
+        <xs:element ref="SwitchTimes" minOccurs="0" />
+      </xs:all>
+      <xs:attribute ref="InUse" use="required" />
+      <xs:attribute name="InitialPos" type="ContactClosurePos" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Following is required -->
+  <xs:element name="SourceSettings">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="SourceTypeInUse" type="SourceTypeName"  />
+        <xs:element name="SourceTypes" >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SourceType" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:all>
+                    <!-- Values are required depending on SourceType specified -->
+                    <xs:element name="Type" type="SourceTypeName" />
+                    <xs:element name="PositiveCurrent" type="xs:double" minOccurs="0" />
+                    <xs:element name="NegativeCurrent" type="xs:double" minOccurs="0" />
+                    <xs:element name="PositiveVoltage" type="xs:double" minOccurs="0" />
+                    <xs:element name="NegativeVoltage" type="xs:double" minOccurs="0" />
+                    <xs:element name="SheathGas" type="xs:double" minOccurs="0" />
+                    <xs:element name="AuxGas" type="xs:double" minOccurs="0" />
+                    <xs:element name="SweepGas" type="xs:double" minOccurs="0" />
+                    <xs:element name="IonTransferTubeTemp" type="xs:double" minOccurs="0" />
+                    <xs:element name="VaporizerTemp" type="xs:double" minOccurs="0" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="TimePoints">
+    <xs:sequence>
+      <xs:element name="TimePoint" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="Voltage" type="xs:double" />
+            <xs:element name="Time" type="xs:double" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute ref="InUse" use="required" />
+    <xs:attribute name="InitialVoltage" type="xs:double" />
+  </xs:complexType>
+
+  <!-- If not present then InUse=False -->
+  <xs:element name="SprayVoltage">
+    <xs:complexType>
+      <xs:all minOccurs="0">
+        <xs:element name="PositiveTimePoints" type="TimePoints" minOccurs="0"/>
+        <xs:element name="NegativeTimePoints" type="TimePoints" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GlobalParams">
+    <xs:complexType>
+      <xs:all minOccurs="0">
+
+        <xs:element ref="SourceSettings" minOccurs="1" />
+
+        <xs:element ref="SprayVoltage" minOccurs="0" />
+
+        <xs:element name="DivertValveA" type="DivertValve" minOccurs="0" />
+
+        <xs:element name="DivertValveB" type="DivertValve" minOccurs="0" />
+
+        <xs:element ref="SyringePump" minOccurs="0" />
+
+        <xs:element ref="ContactClosure" minOccurs="0" />
+
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

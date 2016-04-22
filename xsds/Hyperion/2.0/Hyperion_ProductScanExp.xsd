@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="HyperionMethodParams.xsd" />
+  <xs:include schemaLocation="HyperionMassListParams.xsd" />
+
+  <xs:complexType name="ProductScanExpParams">
+    <xs:all>
+      <xs:element name="ScanRate" type="ScanRate" minOccurs="1" />
+      <xs:element name="Q1PeakWidth" type="Q1PeakWidth" minOccurs="1" />
+      <xs:element name="Q3PeakWidth" type="Q3PeakWidth" minOccurs="1" />
+      <xs:element ref="CollisionGasPressure" minOccurs="1" />
+      <xs:element name="SourceCID" type="SourceCID" minOccurs="1" />
+      <xs:element ref="UseCalibratedS-Lens" minOccurs="1" />
+      <xs:element ref="UseCollisionEnergyRamp" minOccurs="1" />
+      <!-- Folowing are required depending on other ExpParams -->
+      <!-- if UseCollisionEnergyRamp is true CollisionEnergyRampStart/End is required -->
+      <xs:element name="CollisionEnergyRampStart" type="CollisionEnergyRampStart" minOccurs="0" />
+      <xs:element name="CollisionEnergyRampEnd" type="CollisionEnergyRampEnd" minOccurs="0" />
+      <!-- if UseCollisionEnergyRamp is false CollisionEnergy is required -->
+      <xs:element name="CollisionEnergy" type="CollisionEnergy" minOccurs="0" />
+      <!-- if UseCalibratedS-Lens is false DwellTime is required -->
+      <xs:element name="S-Lens" type="S-Lens" minOccurs="0" />
+      <!-- if cycletime inuse is true ChromFilter is required -->
+      <xs:element ref="ChromFilter" minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ProductScanMassList">
+    <xs:sequence>
+      <xs:element name="ListItem" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element ref="PrecursorMass" minOccurs="1" />
+            <xs:element ref="FirstMass" minOccurs="1" />
+            <xs:element ref="LastMass" minOccurs="1" />
+            <xs:element ref="Polarity" minOccurs="1" />
+            <!-- Folowing are required depending on ExpParams -->
+            <xs:element ref="CollisionEnergyRampStart" minOccurs="0" />
+            <xs:element ref="CollisionEnergyRampEnd" minOccurs="0" />
+            <xs:element ref="CollisionEnergy" minOccurs="0" />
+            <xs:element ref="S-Lens" minOccurs="0" />
+            <xs:element ref="ScanRate" minOccurs="0" />
+            <xs:element ref="Q1PeakWidth" minOccurs="0" />
+            <xs:element ref="Q3PeakWidth" minOccurs="0" />
+            <xs:element ref="SourceCID" minOccurs="0" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="ProductScanExp">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="ExpParams" type="ProductScanExpParams" minOccurs="0" />
+
+        <xs:element name="MassList" type="ProductScanMassList" minOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

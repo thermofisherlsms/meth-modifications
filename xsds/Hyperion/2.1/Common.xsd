@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <xs:attribute name="InUse" type="xs:boolean" />
+
+  <xs:simpleType name="Version">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Family">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hyperion"/>
+      <!--<xs:enumeration value="Calcium"/>-->
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Polarity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="positive"/>
+      <xs:enumeration value="negative"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TristatePolarity">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="positive"/>
+		<xs:enumeration value="negative"/>
+		<xs:enumeration value="both"/>
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ScanRateValue">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="5"/>
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="50"/>
+      <xs:enumeration value="100"/>
+      <xs:enumeration value="250"/>
+      <xs:enumeration value="500"/>
+      <xs:enumeration value="1000"/>
+      <xs:enumeration value="2500"/>
+      <xs:enumeration value="5000"/>
+      <xs:enumeration value="15000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="UseQuad">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Q1"/>
+        <xs:enumeration value="Q3"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  
+</xs:schema>

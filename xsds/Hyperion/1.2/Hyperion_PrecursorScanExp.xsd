@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="HyperionMethodParams.xsd" />
+  <xs:include schemaLocation="HyperionMassListParams.xsd" />
+
+  <xs:complexType name="PrecursorScanExpParams">
+    <xs:all>
+      <xs:element name="ScanRate" type="ScanRate" minOccurs="1" />
+      <xs:element name="Q1PeakWidth" type="Q1PeakWidth" minOccurs="1" />
+      <xs:element name="Q3PeakWidth" type="Q3PeakWidth" minOccurs="1" />
+      <xs:element ref="CollisionGasPressure" minOccurs="1" />
+      <xs:element name="SourceCID" type="SourceCID" minOccurs="1" />
+      <xs:element ref="ChromFilter" minOccurs="1" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="PrecursorScanMassList">
+    <xs:sequence>
+      <xs:element name="ListItem" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element ref="ProductMass" minOccurs="1" />
+            <xs:element ref="FirstMass" minOccurs="1" />
+            <xs:element ref="LastMass" minOccurs="1" />
+            <xs:element ref="Polarity" minOccurs="1" />
+            <xs:element ref="CollisionEnergy" minOccurs="1" />
+            <!-- Folowing are required depending on ExpParams -->
+            <xs:element ref="ScanRate" minOccurs="0" />
+            <xs:element ref="Q1PeakWidth" minOccurs="0" />
+            <xs:element ref="Q3PeakWidth" minOccurs="0" />
+            <xs:element ref="SourceCID" minOccurs="0" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="PrecursorScanExp">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="ExpParams" type="PrecursorScanExpParams" minOccurs="0" />
+
+        <xs:element name="MassList" type="PrecursorScanMassList" minOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

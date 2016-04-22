@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="HyperionMethodParams.xsd" />
+  <xs:include schemaLocation="HyperionMassListParams.xsd" />
+
+  <xs:complexType name="SIMExpParams">
+    <xs:all>
+	  <xs:element ref="UseDwellTime" minOccurs="1"/>
+	  <xs:element name="ScanRate" type="ScanRate" minOccurs="1" />
+      <xs:element name="ScanWidth" type="ScanWidth" minOccurs="1" />
+      <xs:element ref="UseQuad" minOccurs="1" />
+      <xs:element name="PeakWidth" type="PeakWidth" minOccurs="1" />
+      <xs:element ref="CollisionGasPressure" minOccurs="1" />
+      <xs:element name="SourceCID" type="SourceCID" minOccurs="1" />
+      <xs:element ref="UseCalibratedS-Lens" minOccurs="1" />
+      <xs:element name="CycleTime" type="CycleTime" minOccurs="1" />
+      <!-- Folowing are required depending on other ExpParams -->
+      <!-- if cycletime inuse is false DwellTime is required -->
+      <xs:element name="DwellTime" type="DwellTime" minOccurs="0" />
+      <!-- if UseCalibratedS-Lens is false DwellTime is required -->
+      <xs:element name="S-Lens" type="S-Lens" minOccurs="0" />
+      <!-- if cycletime inuse is true ChromFilter is required -->
+      <xs:element ref="ChromFilter" minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="SIMMassList">
+    <xs:sequence>
+      <xs:element name="ListItem" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element ref="Name" minOccurs="1" />
+            <xs:element ref="Mass" minOccurs="1" />
+            <xs:element ref="StartTime" minOccurs="1" />
+            <xs:element ref="StopTime" minOccurs="1" />
+            <xs:element ref="Polarity" minOccurs="1" />
+            <!-- Folowing are required depending on ExpParams -->
+            <xs:element ref="ScanWidth" minOccurs="0" />
+			<xs:element ref="ScanRate" minOccurs="0" />
+            <xs:element ref="S-Lens" minOccurs="0" />
+            <xs:element ref="DwellTime" minOccurs="0" />
+            <xs:element ref="PeakWidth" minOccurs="0" />
+            <xs:element ref="SourceCID" minOccurs="0" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="SIMExp">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="ExpParams" type="SIMExpParams" minOccurs="0" />
+
+        <xs:element name="MassList" type="SIMMassList" minOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
