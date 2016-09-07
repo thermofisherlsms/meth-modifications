@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MethodModifications Version="2" Model="OrbitrapFusion" Family="Calcium" Type="SL">
+
+	<Modification Order="1">                                             <!-- This is the first modification that will occur -->
+		<Experiment ExperimentIndex="0">                                 <!-- select the first (0-based) experiment in the template method -->
+			<CopyAndAppendScanNode>                                      <!-- we are going to copy and paste a scan node -->
+				<SourceNodePosition>0</SourceNodePosition>               <!-- select the first child of the root node to copy and append it to the root node as another child node -->
+			</CopyAndAppendScanNode>
+		</Experiment>
+	</Modification>
+
+	<Modification Order="2">                                             <!-- This is the second  modification that will occur, and it must occur second because we are going to modify a scan that the first mod creates -->
+		<Experiment ExperimentIndex="0">                                 <!-- select the first (0-based) experiment in the template method -->
+			<ScanNode>                                    				 <!-- we are going to modify the contents of a scan node -->
+				<SourceNodePosition>1</SourceNodePosition>               <!-- select the second child of the root node to edit. This node was created by the first modification -->
+				<ScanParameters>                                         <!-- access the scan parameters of this node -->
+					<CollisionEnergyCID>25.1</CollisionEnergyCID>        <!-- modify its CID collision energy -->
+				</ScanParameters>
+			</ScanNode>
+		</Experiment>
+	</Modification>
+  
+</MethodModifications>

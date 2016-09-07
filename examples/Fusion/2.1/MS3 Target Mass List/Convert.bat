@@ -1,0 +1,1 @@
+"..\..\..\..\XmlMethodChanger\bin\2.1 Debug\XmlMethodChanger.exe" -i MS3Template.meth -m MS3.xml -o MS3_generated.meth

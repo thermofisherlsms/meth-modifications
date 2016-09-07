@@ -1,0 +1,1 @@
+"..\..\..\..\XmlMethodChanger\bin\2.1 Debug\XmlMethodChanger.exe" -i MS4Template.meth -m MS4.xml -o MS4_generated.meth

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MethodModifications Version="2" Model="OrbitrapFusion" Family="Calcium" Type="SL">
+
+	<Modification Order="1">                                                      <!-- This is the first modification that will occur -->
+		<Experiment ExperimentIndex="0">                                          <!-- select the first (0-based) experiment in the template method -->
+			<MassListFilter MassListType="TargetedMassInclusion">   			  <!-- we want to grab the 'Targeted Mass Inclusion' filter -->
+				<SourceNodePosition>1</SourceNodePosition>                        <!-- Take the second child node (0-based) of the master OT scan -->
+				<SourceNodePosition>0</SourceNodePosition>                        <!-- Take the first child node (0-based) of the previously selected node (i.e., the second ddMS2 IT) -->
+				<MassList>                                                        <!-- grab the mass list part of the filter -->
+					<MassListRecord>                                              <!-- generate a new 'record' or line in the list -->
+						<MOverZ>195.12</MOverZ>                                   <!-- set the m/z value -->
+						<Z>1</Z>                                                  <!-- set the z value -->						
+					</MassListRecord>
+				</MassList>
+			</MassListFilter>
+		</Experiment>
+	</Modification>
+  
+</MethodModifications>
