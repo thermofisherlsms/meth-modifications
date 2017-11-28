@@ -77,7 +77,7 @@ namespace XmlMethodChanger.lib
             // http://stackoverflow.com/questions/751511/validating-an-xml-against-referenced-xsd-in-c-sharp
             var validationErrors = new List<string>();
 
-            if (version != "2.1" || version != "2.0" || version != "1.2")
+            if (string.IsNullOrEmpty(version))
             {
                 version = "2.0"; // default to 2.0
             }
@@ -297,6 +297,8 @@ namespace XmlMethodChanger.lib
 
                 case "TSQEndura":
                 case "TSQQuantiva":
+                case "TSQQuantis":
+                case "TSQAltis":
                     return InstrumentFamily.TSQ;
 
                 default:
