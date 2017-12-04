@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="GlobalParams.xsd"/>
+	<xs:include schemaLocation="Hyperion_SRMExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_SIMExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_ProductScanExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_PrecursorScanExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_NLScanExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_FullScanExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_QEDExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_COExp.xsd"/>
+	<xs:include schemaLocation="Hyperion_MixedScanExp.xsd"/>
+
+	<xs:element name="Method">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Required for full method -->
+				<xs:element name="RunTime" type="xs:double" minOccurs="0" />
+
+				<xs:choice minOccurs="1" maxOccurs="1">
+					<xs:element ref="SRMExp" />
+					<xs:element ref="SIMExp" />
+					<xs:element ref="ProductScanExp" />
+					<xs:element ref="PrecursorScanExp" />
+					<xs:element ref="NLScanExp" />
+					<xs:element ref="FullScanExp" />
+					<xs:element ref="QEDExp" />
+					<xs:element ref="COExp" />
+					<xs:element ref="MixedScanExp" />
+
+				</xs:choice>
+
+				<!-- Required for full method -->
+				<xs:element ref="GlobalParams" minOccurs="0"/>
+			</xs:sequence>
+
+			<xs:attribute name="Version" type="Version" use="required" />
+			<xs:attribute name="Family" type="Family" use="required" />
+			<xs:attribute name="Model" type="xs:string" use="optional"/>
+
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

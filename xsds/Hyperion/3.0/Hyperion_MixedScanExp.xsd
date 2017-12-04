@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+	<xs:include schemaLocation="Hyperion_SRMExp.xsd" />
+	<xs:include schemaLocation="Hyperion_SIMExp.xsd" />
+	<xs:include schemaLocation="Hyperion_ProductScanExp.xsd" />
+	<xs:include schemaLocation="Hyperion_PrecursorScanExp.xsd" />
+	<xs:include schemaLocation="Hyperion_NLScanExp.xsd" />
+	<xs:include schemaLocation="Hyperion_FullScanExp.xsd" />
+
+	<xs:complexType name="ExperimentDefinition">
+		<xs:sequence>
+			<xs:element name="StartTime" type="xs:double" minOccurs="1"/>
+			<xs:element name="EndTime" type="xs:double"  minOccurs="1"/>
+			<xs:choice minOccurs="1" maxOccurs="1">
+				<xs:element ref="SRMExp" />
+				<xs:element ref="SIMExp" />
+				<xs:element ref="ProductScanExp" />
+				<xs:element ref="PrecursorScanExp" />
+				<xs:element ref="NLScanExp" />
+				<xs:element ref="FullScanExp" />
+			</xs:choice>
+		</xs:sequence>				
+	</xs:complexType>
+
+	<xs:element name="MixedScanExp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Experiments">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Experiment" type="ExperimentDefinition" minOccurs="1" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
