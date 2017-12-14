@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MethodModifications Version="2" Model="OrbitrapFusionLumos" Family="Calcium" Type="SL">
+
+   <Modification Order="1">
+    <Experiment ExperimentIndex="0">
+     <MassListFilter MassListType="TargetedMassExclusion"> 
+	  <MassList IntensityThreshold="true">  
+        <MassListRecord>    
+			<MOverZ>195.12</MOverZ> 
+			<Z>1</Z>		
+			<IntensityThreshold>5e6</IntensityThreshold>
+        </MassListRecord>
+		 <MassListRecord>    
+			<MOverZ>262.3</MOverZ> 
+			<Z>2</Z>		
+			<IntensityThreshold>1e4</IntensityThreshold>
+        </MassListRecord>
+      </MassList>
+    </MassListFilter>
+	</Experiment>
+	</Modification>
+  	
+	<Modification Order="2">
+    <Experiment ExperimentIndex="0">
+	<MassListFilter MassListType="TargetedMassInclusion"> 
+	  <MassList IntensityThreshold="true">   
+        <MassListRecord>    
+			<MOverZ>195.12</MOverZ> 
+			<Z>1</Z>		
+			<IntensityThreshold>5e7</IntensityThreshold>
+        </MassListRecord>
+		 <MassListRecord>    
+			<MOverZ>262.3</MOverZ> 
+			<Z>2</Z>		
+			<IntensityThreshold>1e2</IntensityThreshold>
+        </MassListRecord>
+      </MassList>
+    </MassListFilter>
+    </Experiment>
+  </Modification>
+
+</MethodModifications>
