@@ -24,7 +24,7 @@ namespace XmlMethodChanger.Cmd
         [Option('m', "modification", HelpText = "Path of modification file (.xml)", MetaValue = "<XML>")]
         public string MethodModification { get; set; }
 
-        [Option('o', "output", HelpText = "Path of modified file (.meth)", MetaValue = "<METHOD>")]
+        [Option('o', "output", HelpText = "Path of output file (with extension)", MetaValue = "<METHOD|XML>")]
         public string OutputFile { get; set; }
 
         [Option('c', "create", HelpText = "Create a method from xml (Only for TSQ)", MetaValue="<XML>")]
@@ -35,6 +35,13 @@ namespace XmlMethodChanger.Cmd
 
         [Option("version", Required = false, HelpText = "Instrument Model Version (will use latest version by default)", MetaValue = "\"2.0\"")]
         public string InstrumentVersion { get; set; }
+
+        [Option('e', "export", Required = false, HelpText = "Path of a method to export to XML", MetaValue = "<METHOD>")]
+        public string ExportMethod { get; set; }
+
+
+        [Option("summary", Required = false, HelpText = "Prints the summary in the method file")]
+        public bool GenerateSummary { get; set; }
 
         [HelpOption]
         public string GetUsage()

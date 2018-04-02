@@ -8,7 +8,9 @@
 using CommandLine;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using XmlMethodChanger.lib;
 
 namespace XmlMethodChanger.Cmd
@@ -17,6 +19,8 @@ namespace XmlMethodChanger.Cmd
     {
         private static void Main(string[] args)
         {
+
+
             var options = new Options();
             if (Parser.Default.ParseArguments(args, options))
             {
@@ -26,6 +30,10 @@ namespace XmlMethodChanger.Cmd
                     {
                         foreach (string info in MethodChanger.PrintInformation())
                             Console.WriteLine(info);
+                    }
+                    else if (options.GenerateSummary)
+                    {
+                        Console.WriteLine(MethodChanger.GetSummary(options.MethodTemplate, options.InstrumentModel, options.InstrumentVersion));
                     }
                     else if (!string.IsNullOrEmpty(options.Validate))
                     {
@@ -55,6 +63,10 @@ namespace XmlMethodChanger.Cmd
                     else if (!string.IsNullOrEmpty(options.CreateMethodXML))
                     {
                         MethodChanger.CreateMethod(options.CreateMethodXML, options.OutputFile, options.InstrumentModel, options.InstrumentVersion);
+                    }
+                    else if (!string.IsNullOrEmpty(options.ExportMethod))
+                    {
+                        MethodChanger.ExportMethod(options.ExportMethod, options.OutputFile, options.InstrumentModel, options.InstrumentVersion);
                     }
                     else
                     {
