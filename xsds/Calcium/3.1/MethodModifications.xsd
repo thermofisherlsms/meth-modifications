@@ -62,7 +62,12 @@
       <xs:all>
         <xs:element name="MOverZ" type="xs:double" minOccurs="0" maxOccurs="1" />
         <xs:element name="Z" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="FirstCharge" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="LastCharge" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="AdductPositive" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Mass" type="xs:double" minOccurs="0" maxOccurs="1" />
         <xs:element name="CompoundName" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Formula" type="xs:string" minOccurs="0" maxOccurs="1" />
         <xs:element name="StartTime" type="xs:double" minOccurs="0" maxOccurs="1" />
         <xs:element name="EndTime" type="xs:double" minOccurs="0" maxOccurs="1" />
         <xs:element name="CollisionEnergyCID" type="xs:double" minOccurs="0" maxOccurs="1" />
@@ -87,6 +92,7 @@
       <xs:attribute name="IntensityThreshold" type="xs:boolean" default="false" />
       <xs:attribute name="ETDReactionTime" type="xs:boolean" default="false" />
       <xs:attribute name="ScanRange" type="xs:boolean" default="false" />
+      <xs:attribute name="Append" type="xs:boolean" default="false"/>
     </xs:complexType>
   </xs:element>
 
@@ -224,7 +230,8 @@
         <xs:element name="StartTimeMin" type="xs:double" minOccurs="0" maxOccurs="1" />
         <xs:element name="EndTimeMin" type="xs:double" minOccurs="0" maxOccurs="1" />
       </xs:all>
-      <xs:attribute name="ExperimentIndex" type="xs:int" use="required" />
+      <xs:attribute name="ExperimentIndex" type="xs:int" use="optional"/>
+      <xs:attribute name="TargetLabel" type="xs:string" use="optional"/>
     </xs:complexType>
   </xs:element>
 
