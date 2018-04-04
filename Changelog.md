@@ -8,7 +8,7 @@ Adding features for 3.1
 	* Allow user to specify MS2 Parameters on TMS3 scan
 	* Allow user to specify FirstCharge, LastCharge, Mass for MassListRecord
 		* Requires correct Mass List Type to be defined
-
+	* `IncludeIntensityThreshold` value is preserved on template mass list if XML does not specify a change.
 
 ## 6 Sept 2016
 
