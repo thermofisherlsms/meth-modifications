@@ -21,6 +21,9 @@ namespace XmlMethodChanger.Cmd
         [Option('i', "input", HelpText = "Path of template file (.meth)", MetaValue = "<METHOD>")]
         public string MethodTemplate { get; set; }
 
+        [Option('e', "export", HelpText = "Path of the exported XML from the method (.xml)", MetaValue = "<XML>")]
+        public string ExportXml { get; set; }
+
         [Option('m', "modification", HelpText = "Path of modification file (.xml)", MetaValue = "<XML>")]
         public string MethodModification { get; set; }
 
@@ -44,7 +47,8 @@ namespace XmlMethodChanger.Cmd
             text.AddPostOptionsLine("  -i template.meth -m mods.xml -o result.meth");
             text.AddPostOptionsLine("  --validate result.meth");
             text.AddPostOptionsLine("  --validate mods.xml");
-            text.AddPostOptionsLine(@"  -c method.xml --model=""TSQEndura""");    
+            text.AddPostOptionsLine(@"  -c method.xml --model=""TSQEndura""");
+            text.AddPostOptionsLine(@"  -i method.meth -e exported.xml --model=""TSQEndura""");
             return text;
         }
     }

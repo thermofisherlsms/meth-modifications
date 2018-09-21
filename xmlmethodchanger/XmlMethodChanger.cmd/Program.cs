@@ -56,6 +56,10 @@ namespace XmlMethodChanger.Cmd
                     {
                         MethodChanger.CreateMethod(options.CreateMethodXML, options.OutputFile, options.InstrumentModel, options.InstrumentVersion);
                     }
+                    else if (!string.IsNullOrEmpty(options.ExportXml))
+                    {
+                        MethodChanger.ExportMethod(options.MethodTemplate, options.ExportXml, options.InstrumentModel, options.InstrumentVersion);
+                    }
                     else
                     {
                         MethodChanger.ModifyMethod(options.MethodTemplate, options.MethodModification, options.OutputFile, options.InstrumentModel, options.InstrumentVersion);

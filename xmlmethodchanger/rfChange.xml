@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MethodModifications Version="2" Model="OrbitrapFusion" Family="Calcium" Type="SL">
+
+   <Modification Order="1">
+    <Experiment ExperimentIndex="0">
+      <FullMSScan>
+      	<RFLens>25</RFLens>
+	  </FullMSScan>
+      </Experiment>
+  </Modification>
+
+  
+</MethodModifications>

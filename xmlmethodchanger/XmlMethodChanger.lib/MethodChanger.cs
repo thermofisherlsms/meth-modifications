@@ -42,6 +42,16 @@ namespace XmlMethodChanger.lib
                 throw new ArgumentException("Cannot create method context for non-installed instrument model: " + model);
             }
 
+            Console.WriteLine(string.Join(", ", model, version));
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine(string.Join(",", MethodXMLFactory.GetFullInstalledVersions(model)));
+            Console.WriteLine(string.Join(",", MethodXMLFactory.GetInstalledInstrumentModels()));
+            Console.WriteLine(string.Join(",", MethodXMLFactory.GetInstalledServerModel()));
+            Console.WriteLine(string.Join(",", MethodXMLFactory.GetInstalledServerVersion()));
+            Console.WriteLine(string.Join(",", MethodXMLFactory.GetInstalledVersions(model)));
+            Console.WriteLine(string.Join(",", MethodXMLFactory.GetLatestInstalledVersion(model)));
+
+            Console.WriteLine("--------------------------------");
             return MethodXMLFactory.CreateContext(model, version);
         }
 
@@ -233,6 +243,7 @@ namespace XmlMethodChanger.lib
             // Handle relative/absolute paths
             xmlFilePath = Path.GetFullPath(xmlFilePath);
 
+
             if (string.IsNullOrEmpty(outputMethod))
             {
                 outputMethod = Path.ChangeExtension(xmlFilePath, ".meth");
@@ -241,6 +252,7 @@ namespace XmlMethodChanger.lib
 
             // Get the type of instrument based on its name
             InstrumentFamily instrumentFamily = GetInstrumentFamilyFromModel(model);
+            Console.WriteLine(string.Join(", ", xmlFilePath, outputMethod, model, version, instrumentFamily));
             if (instrumentFamily != InstrumentFamily.TSQ)
             {
                 throw new ArgumentException("You can only create methods from TSQ xml files");
@@ -254,6 +266,44 @@ namespace XmlMethodChanger.lib
 
                 // Save the in memory method to the output file
                 xmlMeth.SaveAs(outputMethod);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Export a Hyperion method to xml
+        /// </summary>
+        /// <param name="inputMethod">Path to .meth file</param>
+        /// <param name="exportXml">Path to output .xml file</param>
+        /// <param name="model">The instrument model</param>
+        /// <param name="version">The instrument version</param>
+        public static void ExportMethod(string inputMethod, string exportXml = "", string model = "", string version = "")
+        {
+            inputMethod = Path.GetFullPath(inputMethod);
+
+            if (string.IsNullOrEmpty(exportXml))
+            {
+                exportXml = Path.ChangeExtension(inputMethod, ".xml");
+            }
+            exportXml = Path.GetFullPath(exportXml);
+
+
+
+            // Get the type of instrument based on its name
+            InstrumentFamily instrumentFamily = GetInstrumentFamilyFromModel(model);
+            if (instrumentFamily != InstrumentFamily.TSQ)
+            {
+                throw new ArgumentException("You can only export methods from TSQ method files");
+            }
+
+
+
+            using (IMethodXMLContext mxc = CreateContext(model, version))
+            using (IMethodXML xmlMeth = mxc.Create())
+            {
+                xmlMeth.Open(inputMethod);
+                xmlMeth.ExportMethodToXMLFile(exportXml);
             }
         }
 
@@ -299,6 +349,7 @@ namespace XmlMethodChanger.lib
                 case "TSQQuantiva":
                 case "TSQQuantis":
                 case "TSQAltis":
+                case "TSQFortis":
                     return InstrumentFamily.TSQ;
 
                 default:
