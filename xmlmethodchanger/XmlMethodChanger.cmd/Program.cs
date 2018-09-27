@@ -8,7 +8,9 @@
 using CommandLine;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using XmlMethodChanger.lib;
 
 namespace XmlMethodChanger.Cmd
@@ -17,6 +19,13 @@ namespace XmlMethodChanger.Cmd
     {
         private static void Main(string[] args)
         {
+            Console.WriteLine("Waiting for debugger to attach");
+            while (!Debugger.IsAttached)
+            {
+                Thread.Sleep(100);
+            }
+            Console.WriteLine("Debugger attached");
+
             var options = new Options();
             if (Parser.Default.ParseArguments(args, options))
             {

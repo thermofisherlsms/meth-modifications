@@ -15,7 +15,7 @@ using Thermo.TNG.MethodXMLInterface;
 
 namespace XmlMethodChanger.lib
 {
-    public enum InstrumentFamily { OrbitrapFusion, TSQ, Unknown };
+    public enum InstrumentFamily { OrbitrapFusion, TSQ, Merkur, Unknown };
 
     public static class MethodChanger
     {
@@ -222,6 +222,10 @@ namespace XmlMethodChanger.lib
                         xmlMeth.ImportMassListFromXMLFile(methodModXML);
                         break;
 
+                    case InstrumentFamily.Merkur:
+                        xmlMeth.ApplyMethodModificationsFromXMLFile(methodModXML);
+                        break;
+
                     default:
                         throw new ArgumentException("Unsupported instrument model:" + model);
                 }
@@ -327,6 +331,9 @@ namespace XmlMethodChanger.lib
                 case "Hyperion":
                     return InstrumentFamily.TSQ;
 
+                case "Merkur":
+                    return InstrumentFamily.Merkur;
+
                 default:
                     return InstrumentFamily.Unknown;
             }
@@ -339,22 +346,19 @@ namespace XmlMethodChanger.lib
         /// <returns>The instrument family of the model name</returns>
         public static InstrumentFamily GetInstrumentFamilyFromModel(string instrumentModel)
         {
-            switch (instrumentModel)
+            if (instrumentModel.StartsWith("Orbitrap"))
             {
-                case "OrbitrapFusion":
-                case "OrbitrapFusionLumos":
-                    return InstrumentFamily.OrbitrapFusion;
-
-                case "TSQEndura":
-                case "TSQQuantiva":
-                case "TSQQuantis":
-                case "TSQAltis":
-                case "TSQFortis":
-                    return InstrumentFamily.TSQ;
-
-                default:
-                    return InstrumentFamily.Unknown;
+                return InstrumentFamily.OrbitrapFusion;
             }
+            else if (instrumentModel.StartsWith("Merkur"))
+            {
+                return InstrumentFamily.Merkur;
+            }
+            else if (instrumentModel.StartsWith("TSQ"))
+            {
+                return InstrumentFamily.TSQ;
+            }
+            return InstrumentFamily.Unknown;
         }
 
         /// <summary>

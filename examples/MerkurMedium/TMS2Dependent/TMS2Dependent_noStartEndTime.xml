@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MethodModifications Version="1" Model="OrbitrapFusion" Family="Calcium" Type="SL">
+  <Modification Order="1">
+    <Experiment ExperimentIndex="0">
+      <FullMSScan>
+        <FirstMass>490</FirstMass>
+        <LastMass>910</LastMass>
+      </FullMSScan>
+      <TargetedInclusionMassListFilter>
+        <MassList StartEndTime="false">
+          <MassListRecord>
+            <MOverZ>510.4819</MOverZ>
+            <Z>2</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>510.4819</MOverZ>
+            <Z>2</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+          </MassListRecord>
+          <MassListRecord>
+            <MOverZ>510.4819</MOverZ>
+            <Z>2</Z>
+            <StartTime>34.94</StartTime>
+            <EndTime>36.94</EndTime>
+          </MassListRecord>
+        </MassList>
+      </TargetedInclusionMassListFilter>
+    </Experiment>
+  </Modification>
+</MethodModifications>
