@@ -1,1 +1,1 @@
-..\..\..\XmlMethodChanger\bin\Debug\XmlMethodChanger.exe -i Template.meth -m IntensityThreshold.xml -o IntensityThresholdExperiment.meth
+..\..\..\XmlMethodChanger\bin\Debug\XmlMethodChanger.exe -i Template.meth -m IntensityThreshold.xml -o IntensityThresholdExperiment.meth --version="3.1" --model="OrbitrapFusionLumos"
