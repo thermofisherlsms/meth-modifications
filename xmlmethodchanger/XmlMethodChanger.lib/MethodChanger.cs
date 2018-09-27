@@ -194,13 +194,13 @@ namespace XmlMethodChanger.lib
             InstrumentFamily instrumentFamily = GetInstrumentFamilyFromModel(model);
 
             // Get the type of instrument modification based on the xml file
-            InstrumentFamily xmlInstrumentFamily = GetInstrumentFamilyFromXml(methodModXML);
+            //InstrumentFamily xmlInstrumentFamily = GetInstrumentFamilyFromXml(methodModXML);
 
             // These two need to be equivalent to correctly apply the modifications
-            if (instrumentFamily != xmlInstrumentFamily)
-            {
-                throw new ArgumentException(string.Format("The specified xml ({0}) is not compatible with the instrument model ({1}, {2})", xmlInstrumentFamily, instrumentFamily, model));
-            }
+            //if (instrumentFamily != xmlInstrumentFamily)
+            //{
+            //    throw new ArgumentException(string.Format("The specified xml ({0}) is not compatible with the instrument model ({1}, {2})", xmlInstrumentFamily, instrumentFamily, model));
+            //}
 
             using (IMethodXMLContext mxc = CreateContext(model, version))
             using (IMethodXML xmlMeth = mxc.Create())
@@ -274,40 +274,32 @@ namespace XmlMethodChanger.lib
         }
 
 
-
-        /// <summary>
-        /// Export a Hyperion method to xml
-        /// </summary>
-        /// <param name="inputMethod">Path to .meth file</param>
-        /// <param name="exportXml">Path to output .xml file</param>
-        /// <param name="model">The instrument model</param>
-        /// <param name="version">The instrument version</param>
-        public static void ExportMethod(string inputMethod, string exportXml = "", string model = "", string version = "")
+        public static void ExportMethod(string methodFile, string outputFile, string instrumentModel, string version)
         {
-            inputMethod = Path.GetFullPath(inputMethod);
+            methodFile = Path.GetFullPath(methodFile);
 
-            if (string.IsNullOrEmpty(exportXml))
+            if (string.IsNullOrEmpty(outputFile))
             {
-                exportXml = Path.ChangeExtension(inputMethod, ".xml");
+                outputFile = Path.ChangeExtension(methodFile, ".xml");
             }
-            exportXml = Path.GetFullPath(exportXml);
-
+            outputFile = Path.GetFullPath(outputFile);
 
 
             // Get the type of instrument based on its name
-            InstrumentFamily instrumentFamily = GetInstrumentFamilyFromModel(model);
-            if (instrumentFamily != InstrumentFamily.TSQ)
+            InstrumentFamily instrumentFamily = GetInstrumentFamilyFromModel(instrumentModel);
+            if (instrumentFamily != InstrumentFamily.OrbitrapFusion)
             {
-                throw new ArgumentException("You can only export methods from TSQ method files");
+                throw new ArgumentException("You can only export Fusion/Tribrid method files");
             }
 
-
-
-            using (IMethodXMLContext mxc = CreateContext(model, version))
+            string xml = "";
+            using (IMethodXMLContext mxc = CreateContext(instrumentModel, version))
             using (IMethodXML xmlMeth = mxc.Create())
+            using(StreamWriter writer = new StreamWriter(outputFile))
             {
-                xmlMeth.Open(inputMethod);
-                xmlMeth.ExportMethodToXMLFile(exportXml);
+                xmlMeth.Open(methodFile);
+                xml = xmlMeth.ExportMethodToXML();
+                writer.Write(xml);
             }
         }
 
@@ -357,6 +349,7 @@ namespace XmlMethodChanger.lib
             else if (instrumentModel.StartsWith("TSQ"))
             {
                 return InstrumentFamily.TSQ;
+
             }
             return InstrumentFamily.Unknown;
         }
@@ -407,6 +400,18 @@ namespace XmlMethodChanger.lib
             yield return "============================";
             yield return string.Format("Installed Server Model:   {0}", MethodXMLFactory.GetInstalledServerModel());
             yield return string.Format("Installed Server Version: {0}", MethodXMLFactory.GetInstalledServerVersion());
+        }
+
+        public static string GetSummary(string methodFile, string instrumentModel, string version)
+        {
+            methodFile = Path.GetFullPath(methodFile);
+
+            using (IMethodXMLContext mxc = CreateContext(instrumentModel, version))
+            using (IMethodXML xmlMeth = mxc.Create())
+            {
+                xmlMeth.Open(methodFile);
+                return xmlMeth.GetMethodSummary();
+            }
         }
     }
 }

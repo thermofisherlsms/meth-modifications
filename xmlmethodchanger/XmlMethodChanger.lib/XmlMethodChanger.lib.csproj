@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="Thermo.TNG.MethodXMLFactory, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35efc4498449bc4c, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\2.1\Thermo.TNG.MethodXMLFactory.dll</HintPath>
+      <HintPath>..\..\lib\3.1\Thermo.TNG.MethodXMLFactory.dll</HintPath>
     </Reference>
     <Reference Include="Thermo.TNG.MethodXMLInterface, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35efc4498449bc4c, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\2.1\Thermo.TNG.MethodXMLInterface.dll</HintPath>
+      <HintPath>..\..\lib\3.1\Thermo.TNG.MethodXMLInterface.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
