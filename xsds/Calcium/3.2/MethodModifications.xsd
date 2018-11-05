@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+  <xs:simpleType name="Version">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Family">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Calcium"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="OrbitrapResolutionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="R15K"/>   
+      <xs:enumeration value="R30K"/>
+      <xs:enumeration value="R50K"/>
+      <xs:enumeration value="R60K"/>
+      <xs:enumeration value="R120K"/>
+      <xs:enumeration value="R240K"/>
+      <xs:enumeration value="R500K"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ETDSupplementalActivationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="ETciD"/>
+      <xs:enumeration value="EThcD"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MassListType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TargetedMassInclusion"/>
+      <xs:enumeration value="TargetedMassExclusion"/>
+      <xs:enumeration value="TargetedMassTrigger"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ActivationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CID"/>
+      <xs:enumeration value="HCD"/>
+      <xs:enumeration value="ETD"/>
+      <xs:enumeration value="UVPD"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="MassListRecord">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="MOverZ" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Z" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="FirstCharge" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="LastCharge" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="AdductPositive" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Mass" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="CompoundName" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Formula" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="StartTime" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="EndTime" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="CollisionEnergyCID" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="CollisionEnergyHCD" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="MSXID" type="xs:integer" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ETDReactionTime" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="FirstMass" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="LastMass" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="IntensityThreshold" type="xs:double" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MassList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MassListRecord" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="StartEndTime" type="xs:boolean" default="false" />
+      <xs:attribute name="CollisionEnergyCID" type="xs:boolean" default="false" />
+      <xs:attribute name="CollisionEnergyHCD" type="xs:boolean" default="false" />
+      <xs:attribute name="IntensityThreshold" type="xs:boolean" default="false" />
+      <xs:attribute name="ETDReactionTime" type="xs:boolean" default="false" />
+      <xs:attribute name="ScanRange" type="xs:boolean" default="false" />
+      <xs:attribute name="Append" type="xs:boolean" default="false"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="FullMSScan">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="FirstMass" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="LastMass" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Microscans" type="xs:int" minOccurs="0" maxOccurs="1" />
+        <xs:element name="MaxITTimeInMS" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="AgcTarget" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ScanDescription" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  
+
+
+  <xs:element name="TMSnScan">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="EnableMultiplexIons" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+        <xs:element name="EnableMSXIds" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+        <xs:element name="MaxNoOfMultiplexIons" type="xs:int" minOccurs="0" maxOccurs="1" />
+        <xs:element name="OrbitrapResolution" type="OrbitrapResolutionType" minOccurs="0" maxOccurs="1" />
+        <xs:element name="AgcTarget" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="MinAgcTarget" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+        <xs:element name="MaxITTimeInMS" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Microscans" type="xs:int" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ActivationType" type="ActivationType" minOccurs="0" maxOccurs="1" />
+        <xs:element name="IsolationWindow" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <!-- ETD Params -->
+        <xs:element name="ETDReactionTime" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ETDReagentTarget" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="MaximumETDReagentInjectionTime" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="UseInternalCalibratedETD" type ="xs:boolean" default="true" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ETDSupplementalActivationEnergy" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ETDSupplementalActivation" type="ETDSupplementalActivationType" minOccurs="0" maxOccurs="1" />
+        <!-- CID Params -->
+        <xs:element name="CIDCollisionEnergy" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="CIDActivationTime" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="CIDActivationQ" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <!-- HCD Params -->
+        <xs:element name="HCDCollisionEnergy" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <!-- UVPD Params -->
+        <xs:element name="UVPDUseCalibratedActivationTime" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="UVPDActivationTime " type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <!-- MS2 Parameters -->
+        <xs:element name="Ms2ActivationType" type="ActivationType" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Ms2IsolationWindow" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <!-- MS2 ETD Params -->
+        <xs:element name="Ms2ETDReactionTime" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Ms2ETDReagentTarget" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Ms2MaximumETDReagentInjectionTime" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Ms2UseInternalCalibratedETD" type ="xs:boolean" default="true" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Ms2ETDSupplementalActivationEnergy" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="Ms2ETDSupplementalActivation" type="ETDSupplementalActivationType" minOccurs="0" maxOccurs="1" />
+        <!-- MS2 CID Params -->
+        <xs:element name="Ms2CIDCollisionEnergy" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Ms2CIDActivationTime" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Ms2CIDActivationQ" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <!-- MS2 HCD Params -->
+        <xs:element name="Ms2HCDCollisionEnergy" type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <!-- MS2 UVPD Params -->
+        <xs:element name="Ms2UVPDUseCalibratedActivationTime" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Ms2UVPDActivationTime " type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="MassList" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element name="ScanDescription" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="TargetedInclusionMassListFilter">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="MassList" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="TargetedExclusionMassListFilter">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="MassList" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CopyAndAppendScanNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SourceNodePosition" type="xs:int" minOccurs="0" maxOccurs="unbounded" />        
+      </xs:sequence>    
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ScanParameters">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="IsolationOffset" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="CollisionEnergyCID" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="CollisionEnergyHCD" type="xs:double" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+    </xs:complexType>    
+  </xs:element>
+
+  <xs:element name="ScanNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SourceNodePosition" type="xs:int" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="ScanParameters" minOccurs="0" maxOccurs="1" />      
+      </xs:sequence>      
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MassListFilter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SourceNodePosition" type="xs:int" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="MassList" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="Above" type="xs:boolean" default="false" />
+      <xs:attribute name="MassListType" type="MassListType" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="Experiment">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="TMSnScan" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="FullMSScan" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="TargetedInclusionMassListFilter" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="TargetedExclusionMassListFilter" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="CopyAndAppendScanNode" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="ScanNode" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="MassListFilter" minOccurs="0" maxOccurs="1" />
+        <xs:element name="StartTimeMin" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="EndTimeMin" type="xs:double" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+      <xs:attribute name="ExperimentIndex" type="xs:int" use="optional"/>
+      <xs:attribute name="TargetLabel" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CopyAndAppendExperiment">
+    <xs:complexType>
+      <xs:attribute name="SourceExperimentIndex" type="xs:int" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Modification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CopyAndAppendExperiment" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="Experiment" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="Order" type="xs:int" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MethodModifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Modification" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+
+      <xs:attribute name="Version" type="Version" use="required" />
+      <xs:attribute name="Family" type="Family" use="required" />
+      <xs:attribute name="Model" type="xs:string" use="optional"/>
+      <xs:attribute name="Type" type="Type" use="required" />
+    </xs:complexType>
+
+    <xs:unique name="uniqueOrder">
+      <xs:selector xpath="Modification"/>
+      <xs:field xpath="@Order"/>
+    </xs:unique>
+  </xs:element>
+
+</xs:schema>

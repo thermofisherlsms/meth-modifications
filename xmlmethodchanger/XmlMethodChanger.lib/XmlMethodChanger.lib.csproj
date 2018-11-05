@@ -48,13 +48,11 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Thermo.TNG.MethodXMLFactory, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35efc4498449bc4c, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\3.1\Thermo.TNG.MethodXMLFactory.dll</HintPath>
+    <Reference Include="Thermo.TNG.MethodXMLFactory">
+      <HintPath>..\..\lib\3.2\Thermo.TNG.MethodXMLFactory.dll</HintPath>
     </Reference>
-    <Reference Include="Thermo.TNG.MethodXMLInterface, Version=2.0.0.0, Culture=neutral, PublicKeyToken=35efc4498449bc4c, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\3.1\Thermo.TNG.MethodXMLInterface.dll</HintPath>
+    <Reference Include="Thermo.TNG.MethodXMLInterface">
+      <HintPath>..\..\lib\3.2\Thermo.TNG.MethodXMLInterface.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
