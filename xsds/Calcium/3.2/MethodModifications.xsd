@@ -146,7 +146,7 @@
         <xs:element name="HCDCollisionEnergy" type="xs:double" minOccurs="0" maxOccurs="1"/>
         <!-- UVPD Params -->
         <xs:element name="UVPDUseCalibratedActivationTime" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-        <xs:element name="UVPDActivationTime " type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="UVPDActivationTime" type="xs:double" minOccurs="0" maxOccurs="1"/>
         <!-- MS2 Parameters -->
         <xs:element name="Ms2ActivationType" type="ActivationType" minOccurs="0" maxOccurs="1" />
         <xs:element name="Ms2IsolationWindow" type="xs:double" minOccurs="0" maxOccurs="1" />
@@ -165,7 +165,7 @@
         <xs:element name="Ms2HCDCollisionEnergy" type="xs:double" minOccurs="0" maxOccurs="1"/>
         <!-- MS2 UVPD Params -->
         <xs:element name="Ms2UVPDUseCalibratedActivationTime" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-        <xs:element name="Ms2UVPDActivationTime " type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Ms2UVPDActivationTime" type="xs:double" minOccurs="0" maxOccurs="1"/>
         <xs:element ref="MassList" minOccurs="0" maxOccurs="1" />
         
         <xs:element name="ScanDescription" minOccurs="0" maxOccurs="1">
