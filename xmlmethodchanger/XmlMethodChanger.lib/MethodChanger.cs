@@ -15,7 +15,7 @@ using Thermo.TNG.MethodXMLInterface;
 
 namespace XmlMethodChanger.lib
 {
-    public enum InstrumentFamily { OrbitrapFusion, TSQ, Unknown };
+    public enum InstrumentFamily { OrbitrapFusion, TSQ, Unknown, Merkur };
 
     public static class MethodChanger
     {
@@ -79,7 +79,7 @@ namespace XmlMethodChanger.lib
 
             if (string.IsNullOrEmpty(version))
             {
-                version = "2.0"; // default to 2.0
+                version = "3.3"; // default to 2.0
             }
 
             XmlReaderSettings settings = new XmlReaderSettings();
@@ -98,6 +98,10 @@ namespace XmlMethodChanger.lib
 
                 case InstrumentFamily.TSQ:
                     xsdFilePath = @"XSDs\Hyperion\{0}\HyperionMethod.xsd";
+                    break;
+
+                case InstrumentFamily.Merkur:
+                    xsdFilePath = @"XSDs\Hyperion\{0}\MerkurMethod.xsd";
                     break;
 
                 default:
@@ -205,6 +209,7 @@ namespace XmlMethodChanger.lib
                 switch (instrumentFamily)
                 {
                     case InstrumentFamily.OrbitrapFusion:
+                    case InstrumentFamily.Merkur:
                         xmlMeth.ApplyMethodModificationsFromXMLFile(methodModXML);
                         break;
 
@@ -258,7 +263,6 @@ namespace XmlMethodChanger.lib
         }
 
 
-
         public static void ExportMethod(string methodFile, string outputFile, string instrumentModel, string version)
         {
             methodFile = Path.GetFullPath(methodFile);
@@ -280,15 +284,16 @@ namespace XmlMethodChanger.lib
             string xml = "";
             using (IMethodXMLContext mxc = CreateContext(instrumentModel, version))
             using (IMethodXML xmlMeth = mxc.Create())
-            using(StreamWriter writer = new StreamWriter(outputFile))
+            using (StreamWriter writer = new StreamWriter(outputFile))
             {
                 xmlMeth.Open(methodFile);
                 xml = xmlMeth.ExportMethodToXML();
                 writer.Write(xml);
             }
 
-            
+
         }
+
 
         /// <summary>
         /// Determines the instrument family that the xml file intends to modify
@@ -310,6 +315,9 @@ namespace XmlMethodChanger.lib
                 case "Hyperion":
                     return InstrumentFamily.TSQ;
 
+                case "Merkur":
+                    return InstrumentFamily.Merkur;
+
                 default:
                     return InstrumentFamily.Unknown;
             }
@@ -322,22 +330,19 @@ namespace XmlMethodChanger.lib
         /// <returns>The instrument family of the model name</returns>
         public static InstrumentFamily GetInstrumentFamilyFromModel(string instrumentModel)
         {
-            switch (instrumentModel)
+            if (instrumentModel.Contains("Orbitrap"))
             {
-                case "OrbitrapFusion":
-                case "OrbitrapFusionLumos":
-                case "OrbitrapID-X":
-                    return InstrumentFamily.OrbitrapFusion;
-
-                case "TSQEndura":
-                case "TSQQuantiva":
-                case "TSQQuantis":
-                case "TSQAltis":
-                    return InstrumentFamily.TSQ;
-
-                default:
-                    return InstrumentFamily.Unknown;
+                return InstrumentFamily.OrbitrapFusion;
             }
+            else if (instrumentModel.Contains("TSQ"))
+            {
+                return InstrumentFamily.TSQ;
+            }
+            else if (instrumentModel.Contains("Merkur"))
+            {
+                return InstrumentFamily.Merkur;
+            }
+            return InstrumentFamily.Unknown;
         }
 
         /// <summary>

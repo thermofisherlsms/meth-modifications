@@ -9,7 +9,7 @@
     </Experiment>
     <Experiment ExperimentIndex="1">
       <TMSnScan>
-        <IsolationWindow>20</IsolationWindow>		
+        <IsolationWindow>20</IsolationWindow>	
       </TMSnScan>
     </Experiment>
   </Modification>
@@ -39,6 +39,7 @@
             <Z>2</Z>			
           </MassListRecord>
         </MassList>
+        <ScanDescription>Testing123</ScanDescription> 
       </TMSnScan>
     </Experiment>
     <Experiment ExperimentIndex="3">
