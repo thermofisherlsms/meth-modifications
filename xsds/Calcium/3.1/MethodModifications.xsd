@@ -104,6 +104,13 @@
         <xs:element name="Microscans" type="xs:int" minOccurs="0" maxOccurs="1" />
         <xs:element name="MaxITTimeInMS" type="xs:double" minOccurs="0" maxOccurs="1" />
         <xs:element name="AgcTarget" type="xs:double" minOccurs="0" maxOccurs="1" />
+        <xs:element name="ScanDescription" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
       </xs:all>
     </xs:complexType>
   </xs:element>
@@ -159,6 +166,15 @@
         <!-- MS2 UVPD Params -->
         <xs:element name="Ms2UVPDUseCalibratedActivationTime" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
         <xs:element name="Ms2UVPDActivationTime " type="xs:double" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="MassList" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element name="ScanDescription" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
       </xs:all>
     </xs:complexType>
   </xs:element>
