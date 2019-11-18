@@ -15,7 +15,7 @@ using Thermo.TNG.MethodXMLInterface;
 
 namespace XmlMethodChanger.lib
 {
-    public enum InstrumentFamily { OrbitrapFusion, TSQ, Unknown };
+    public enum InstrumentFamily { OrbitrapFusion, TSQ, Unknown, Exploris };
 
     public static class MethodChanger
     {
@@ -79,7 +79,7 @@ namespace XmlMethodChanger.lib
 
             if (string.IsNullOrEmpty(version))
             {
-                version = "2.0"; // default to 2.0
+                version = "3.3"; // default to 2.0
             }
 
             XmlReaderSettings settings = new XmlReaderSettings();
@@ -98,6 +98,10 @@ namespace XmlMethodChanger.lib
 
                 case InstrumentFamily.TSQ:
                     xsdFilePath = @"XSDs\Hyperion\{0}\HyperionMethod.xsd";
+                    break;
+
+                case InstrumentFamily.Exploris:
+                    xsdFilePath = @"XSDs\Exploris\{0}\MethodModifications.xsd";
                     break;
 
                 default:
@@ -126,6 +130,7 @@ namespace XmlMethodChanger.lib
         /// <param name="enableValidation">Enable automatic validation on saving</param>
         public static void ModifyMethod(string methodTemplate, string methodModXML, string outputMethod = "", string model = "", string version = "", bool enableValidation = true)
         {
+            Console.WriteLine($"template: {methodTemplate} xml: {methodModXML} output: {outputMethod} model: {model} version: {version}");
             if (string.IsNullOrEmpty(methodTemplate))
                 throw new ArgumentException("A method file path must be specified", "Method Template");
 
@@ -191,6 +196,8 @@ namespace XmlMethodChanger.lib
             //{
             //    throw new ArgumentException(string.Format("The specified xml ({0}) is not compatible with the instrument model ({1}, {2})", xmlInstrumentFamily, instrumentFamily, model));
             //}
+            
+            Console.WriteLine($"model: {model} version: {version}");
 
             using (IMethodXMLContext mxc = CreateContext(model, version))
             using (IMethodXML xmlMeth = mxc.Create())
@@ -205,6 +212,7 @@ namespace XmlMethodChanger.lib
                 switch (instrumentFamily)
                 {
                     case InstrumentFamily.OrbitrapFusion:
+                    case InstrumentFamily.Exploris:
                         xmlMeth.ApplyMethodModificationsFromXMLFile(methodModXML);
                         break;
 
@@ -258,7 +266,6 @@ namespace XmlMethodChanger.lib
         }
 
 
-
         public static void ExportMethod(string methodFile, string outputFile, string instrumentModel, string version)
         {
             methodFile = Path.GetFullPath(methodFile);
@@ -280,15 +287,16 @@ namespace XmlMethodChanger.lib
             string xml = "";
             using (IMethodXMLContext mxc = CreateContext(instrumentModel, version))
             using (IMethodXML xmlMeth = mxc.Create())
-            using(StreamWriter writer = new StreamWriter(outputFile))
+            using (StreamWriter writer = new StreamWriter(outputFile))
             {
                 xmlMeth.Open(methodFile);
                 xml = xmlMeth.ExportMethodToXML();
                 writer.Write(xml);
             }
 
-            
+
         }
+
 
         /// <summary>
         /// Determines the instrument family that the xml file intends to modify
@@ -310,6 +318,10 @@ namespace XmlMethodChanger.lib
                 case "Hyperion":
                     return InstrumentFamily.TSQ;
 
+                case "Merkur":
+                case "Exploris":
+                    return InstrumentFamily.Exploris;
+
                 default:
                     return InstrumentFamily.Unknown;
             }
@@ -322,22 +334,19 @@ namespace XmlMethodChanger.lib
         /// <returns>The instrument family of the model name</returns>
         public static InstrumentFamily GetInstrumentFamilyFromModel(string instrumentModel)
         {
-            switch (instrumentModel)
+            if (instrumentModel.Contains("Orbitrap"))
             {
-                case "OrbitrapFusion":
-                case "OrbitrapFusionLumos":
-                case "OrbitrapID-X":
-                    return InstrumentFamily.OrbitrapFusion;
-
-                case "TSQEndura":
-                case "TSQQuantiva":
-                case "TSQQuantis":
-                case "TSQAltis":
-                    return InstrumentFamily.TSQ;
-
-                default:
-                    return InstrumentFamily.Unknown;
+                return InstrumentFamily.OrbitrapFusion;
             }
+            else if (instrumentModel.Contains("TSQ"))
+            {
+                return InstrumentFamily.TSQ;
+            }
+            else if (instrumentModel.Contains("Merkur") || instrumentModel.Contains("Exploris"))
+            {
+                return InstrumentFamily.Exploris;
+            }
+            return InstrumentFamily.Unknown;
         }
 
         /// <summary>

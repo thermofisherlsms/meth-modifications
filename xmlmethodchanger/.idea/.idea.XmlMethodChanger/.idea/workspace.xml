@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be483721-a253-4298-8f9d-7a8bd9244ab4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../examples/Fusion/DIA/DIA.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/Fusion/DIA/DIA.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/Merkur/3.3/mods.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/Merkur/3.3/mods.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/3.3/Thermo.TNG.MethodXMLFactory.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/3.3/Thermo.TNG.MethodXMLFactory.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lib/3.3/Thermo.TNG.MethodXMLInterface.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../lib/3.3/Thermo.TNG.MethodXMLInterface.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlMethodChanger.cmd/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/XmlMethodChanger.cmd/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlMethodChanger.lib/MethodChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/XmlMethodChanger.lib/MethodChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlMethodChanger.lib/XmlMethodChanger.lib.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/XmlMethodChanger.lib/XmlMethodChanger.lib.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xsds/Calcium/3.1/MethodModifications.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../xsds/Calcium/3.1/MethodModifications.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xsds/Calcium/3.2/MethodModifications.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../xsds/Calcium/3.2/MethodModifications.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../xsds/Merkur/3.3/MethodModifications.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../xsds/Merkur/3.3/MethodModifications.xsd" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/XmlMethodChanger.lib/MethodChanger.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3264">
+              <caret line="198" selection-start-line="198" selection-end-line="198" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/XmlMethodChanger.cmd/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+              <folding>
+                <marker date="1565720647343" expanded="true" signature="0:214" ph="/* Program.cs ... */" />
+                <marker date="1565720647343" expanded="false" signature="221:376" ph="..." />
+                <marker date="1565720647343" expanded="true" signature="408:3715" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="437:3713" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="491:3707" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="502:734" ph="/* Console.WriteLine(&quot;Waiting for debugger to attach&quot;); ... */" />
+                <marker date="1565720647343" expanded="true" signature="838:3697" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="872:3321" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="931:1110" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="1164:1353" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="1423:2524" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="1571:1735" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="1764:1947" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="2039:2320" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="2349:2481" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="2601:2794" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="2868:3058" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="3083:3303" ph="{...}" />
+                <marker date="1565720647343" expanded="true" signature="3357:3683" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/XmlMethodChanger.cmd/Options.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <marker date="1563469611077" expanded="true" signature="0:214" ph="/* Options.cs ... */" />
+                <marker date="1563469611077" expanded="false" signature="221:257" ph="..." />
+                <marker date="1563469611077" expanded="true" signature="289:2523" ph="{...}" />
+                <marker date="1563469611077" expanded="true" signature="318:2521" ph="{...}" />
+                <marker date="1563469611077" expanded="true" signature="2004:2515" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/XmlMethodChanger.cmd/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/XmlMethodChanger.lib/MethodChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/XmlMethodChanger.cmd/Options.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/XmlMethodChanger.lib/MethodChanger.cs" />
+        <option value="$PROJECT_DIR$/XmlMethodChanger.cmd/Program.cs" />
+        <option value="$PROJECT_DIR$/XmlMethodChanger.cmd/Options.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/.idea.XmlMethodChanger/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.XmlMethodChanger/.idea/indexLayout.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-14" />
+    <option name="y" value="-14" />
+    <option name="width" value="3868" />
+    <option name="height" value="2120" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Debug/XmlMethodChanger.exe" />
+      <option name="PROGRAM_PARAMETERS" value="--model=&quot;OrbitrapExploris480&quot; --version=&quot;1.1&quot; -i \temp\merk\FullScan_ddMS2.meth -m \temp\merk\CombinedList1.xml -o \temp\merk\output.meth" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin/Debug" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/XmlMethodChanger.cmd/XmlMethodChanger.Cmd.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.0" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be483721-a253-4298-8f9d-7a8bd9244ab4" name="Default Changelist" comment="" />
+      <created>1563470411718</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563470411718</updated>
+      <workItem from="1563470441214" duration="747000" />
+      <workItem from="1565719879971" duration="2002000" />
+      <workItem from="1568066087412" duration="54000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2803000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13798615" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39915523" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="bottom" id="Performance Profiler" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="15" visible="true" weight="0.42344245" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/XmlMethodChanger.lib/MethodChanger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3264">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XmlMethodChanger.cmd/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding>
+            <marker date="1565720647343" expanded="true" signature="0:214" ph="/* Program.cs ... */" />
+            <marker date="1565720647343" expanded="false" signature="221:376" ph="..." />
+            <marker date="1565720647343" expanded="true" signature="408:3715" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="437:3713" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="491:3707" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="502:734" ph="/* Console.WriteLine(&quot;Waiting for debugger to attach&quot;); ... */" />
+            <marker date="1565720647343" expanded="true" signature="838:3697" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="872:3321" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="931:1110" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="1164:1353" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="1423:2524" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="1571:1735" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="1764:1947" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="2039:2320" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="2349:2481" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="2601:2794" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="2868:3058" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="3083:3303" ph="{...}" />
+            <marker date="1565720647343" expanded="true" signature="3357:3683" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XmlMethodChanger.cmd/Options.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <marker date="1563469611077" expanded="true" signature="0:214" ph="/* Options.cs ... */" />
+            <marker date="1563469611077" expanded="false" signature="221:257" ph="..." />
+            <marker date="1563469611077" expanded="true" signature="289:2523" ph="{...}" />
+            <marker date="1563469611077" expanded="true" signature="318:2521" ph="{...}" />
+            <marker date="1563469611077" expanded="true" signature="2004:2515" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
