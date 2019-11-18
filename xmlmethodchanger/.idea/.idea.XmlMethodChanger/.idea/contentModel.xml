@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\jacob.schwartz\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\jacob.schwartz\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_XmlMethodChanger.892383736.00" t="ExcludeRecursive" />
+    <e p="C:\Users\jacob.schwartz\git\meth-modifications\xmlmethodchanger" t="IncludeFlat">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="XmlMethodChanger.cmd" t="IncludeRecursive">
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Options.cs" t="Include" />
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="XmlMethodChanger.Cmd.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="XmlMethodChanger.lib" t="IncludeRecursive">
+        <e p="MethodChanger.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="XmlMethodChanger.lib.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="XmlMethodChanger.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

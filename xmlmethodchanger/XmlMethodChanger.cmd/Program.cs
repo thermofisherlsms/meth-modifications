@@ -19,7 +19,6 @@ namespace XmlMethodChanger.Cmd
     {
         private static void Main(string[] args)
         {
-
             var options = new Options();
             if (Parser.Default.ParseArguments(args, options))
             {

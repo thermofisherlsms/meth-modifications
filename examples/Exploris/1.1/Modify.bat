@@ -1,0 +1,1 @@
+..\..\..\XmlMethodChanger\bin\Debug\XmlMethodChanger.exe -i merkur.meth -m mods.xml -o output.meth --version="1.1" --model="OrbitrapExploris480"

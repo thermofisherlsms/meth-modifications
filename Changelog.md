@@ -1,5 +1,8 @@
 # Changelog
 
+## 18 November 2019
+Added support for the Orbitrap Exploris product.
+
 ## 2 April 2018
 Adding features for 3.1
 * IMethodXml.GetMethodSummary() : string

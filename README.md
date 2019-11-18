@@ -2,6 +2,9 @@
 
 XML-based Method Modifications for TNG 1.2 and Higher
 
+## 3.3
+Added support for the Orbitrap Eclipse product.
+
 ## 2.1
 
 The XML method modifications have been updated to support the new Tune 2.1 and its features. Please see the [2.1 readme](https://github.com/thermofisherlsms/meth-modifications/blob/master/docs/Readme2.1.md) for a full description of the additional features.

@@ -15,7 +15,7 @@ using Thermo.TNG.MethodXMLInterface;
 
 namespace XmlMethodChanger.lib
 {
-    public enum InstrumentFamily { OrbitrapFusion, TSQ, Unknown, Merkur };
+    public enum InstrumentFamily { OrbitrapFusion, TSQ, Unknown, Exploris };
 
     public static class MethodChanger
     {
@@ -100,8 +100,8 @@ namespace XmlMethodChanger.lib
                     xsdFilePath = @"XSDs\Hyperion\{0}\HyperionMethod.xsd";
                     break;
 
-                case InstrumentFamily.Merkur:
-                    xsdFilePath = @"XSDs\Hyperion\{0}\MerkurMethod.xsd";
+                case InstrumentFamily.Exploris:
+                    xsdFilePath = @"XSDs\Exploris\{0}\MethodModifications.xsd";
                     break;
 
                 default:
@@ -130,6 +130,7 @@ namespace XmlMethodChanger.lib
         /// <param name="enableValidation">Enable automatic validation on saving</param>
         public static void ModifyMethod(string methodTemplate, string methodModXML, string outputMethod = "", string model = "", string version = "", bool enableValidation = true)
         {
+            Console.WriteLine($"template: {methodTemplate} xml: {methodModXML} output: {outputMethod} model: {model} version: {version}");
             if (string.IsNullOrEmpty(methodTemplate))
                 throw new ArgumentException("A method file path must be specified", "Method Template");
 
@@ -195,6 +196,8 @@ namespace XmlMethodChanger.lib
             //{
             //    throw new ArgumentException(string.Format("The specified xml ({0}) is not compatible with the instrument model ({1}, {2})", xmlInstrumentFamily, instrumentFamily, model));
             //}
+            
+            Console.WriteLine($"model: {model} version: {version}");
 
             using (IMethodXMLContext mxc = CreateContext(model, version))
             using (IMethodXML xmlMeth = mxc.Create())
@@ -209,7 +212,7 @@ namespace XmlMethodChanger.lib
                 switch (instrumentFamily)
                 {
                     case InstrumentFamily.OrbitrapFusion:
-                    case InstrumentFamily.Merkur:
+                    case InstrumentFamily.Exploris:
                         xmlMeth.ApplyMethodModificationsFromXMLFile(methodModXML);
                         break;
 
@@ -316,7 +319,8 @@ namespace XmlMethodChanger.lib
                     return InstrumentFamily.TSQ;
 
                 case "Merkur":
-                    return InstrumentFamily.Merkur;
+                case "Exploris":
+                    return InstrumentFamily.Exploris;
 
                 default:
                     return InstrumentFamily.Unknown;
@@ -338,9 +342,9 @@ namespace XmlMethodChanger.lib
             {
                 return InstrumentFamily.TSQ;
             }
-            else if (instrumentModel.Contains("Merkur"))
+            else if (instrumentModel.Contains("Merkur") || instrumentModel.Contains("Exploris"))
             {
-                return InstrumentFamily.Merkur;
+                return InstrumentFamily.Exploris;
             }
             return InstrumentFamily.Unknown;
         }
