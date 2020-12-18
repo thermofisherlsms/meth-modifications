@@ -27,4 +27,4 @@ Changes are now kept in the [changelog](https://github.com/thermofisherlsms/meth
 
 ### License
 
-This software may be modified and distributed under the terms of the MIT license.  See the [LICENSE](LICENSE.md) file for details.
+This software may be modified and distributed under the terms of the MIT license.  See the [LICENSE](https://github.com/thermofisherlsms/meth-modifications/blob/master/LICENSE) file for details.
