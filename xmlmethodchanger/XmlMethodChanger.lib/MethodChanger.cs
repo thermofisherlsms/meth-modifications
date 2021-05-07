@@ -79,7 +79,7 @@ namespace XmlMethodChanger.lib
 
             if (string.IsNullOrEmpty(version))
             {
-                version = "3.3"; // default to 2.0
+                version = "3.4"; // default to 2.0
             }
 
             XmlReaderSettings settings = new XmlReaderSettings();
