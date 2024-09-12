@@ -53,13 +53,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Thermo.TNG.MethodXMLFactory">
-      <HintPath>..\..\..\meth-modifications-master-1\lib\4.0\Thermo.TNG.MethodXMLFactory.dll</HintPath>
+      <HintPath>..\..\lib\4.0\Thermo.TNG.MethodXMLFactory.dll</HintPath>
     </Reference>
     <Reference Include="Thermo.TNG.MethodXMLInterface">
-      <HintPath>..\..\..\meth-modifications-master-1\lib\4.0\Thermo.TNG.MethodXMLInterface.dll</HintPath>
+      <HintPath>...\..\lib\4.0\Thermo.TNG.MethodXMLInterface.dll</HintPath>
     </Reference>
     <Reference Include="Thermo.TNG.MethodXMLInterface2">
-      <HintPath>..\..\..\meth-modifications-master-1\lib\4.0\Thermo.TNG.MethodXMLInterface2.dll</HintPath>
+      <HintPath>..\..\lib\4.0\Thermo.TNG.MethodXMLInterface2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
