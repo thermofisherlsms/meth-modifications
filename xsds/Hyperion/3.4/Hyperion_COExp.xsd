@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+	<xs:include schemaLocation="HyperionMethodParams.xsd" />
+	<xs:include schemaLocation="HyperionMassListParams.xsd" />
+
+	<xs:complexType name="CO_AdductsList">
+		<xs:sequence>
+			<xs:element name="Adduct" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="AdductMass" type="xs:double" minOccurs="1"/>
+						<xs:element ref="Polarity" minOccurs="1"/>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="COExpParams">
+		<xs:all>
+			<xs:element name="SampleDelivery" type="xs:int" minOccurs="0" default="0"/>
+			<xs:element ref="CollisionGasPressure" minOccurs="1" />
+			<xs:element name="Q1PeakWidth" type="xs:double" minOccurs="1" />
+			<xs:element name="ChargeState" type="xs:int" minOccurs="1" />
+			<xs:element name="AdjustPrecursorMass" type="xs:boolean" minOccurs="1" />
+			<xs:element name="OptimizationPolarity" type="TristatePolarity" minOccurs="1" />
+			<xs:element name="SourceCID" type="xs:double" minOccurs="0" />
+			<xs:element name="AdductsList" type="CO_AdductsList" minOccurs="0"/>
+			<xs:element name="ExcludedLossMassList" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="ExcludedLossMass" type="xs:double" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="COMassList">
+		<xs:sequence>
+			<xs:element name="ListItem" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:all>
+						<xs:element ref="Name" minOccurs="1" />
+						<xs:element ref="PrecursorMass" minOccurs="1" />
+						<xs:element ref="UnknownProducts" minOccurs="1" />
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="COExp">
+		<xs:complexType>
+			<xs:all>
+				<!-- Required in case of complete method -->
+				<xs:element name="ExpParams" type="COExpParams" minOccurs="0" />
+				<xs:element name="MassList" type="COMassList" minOccurs="1" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
